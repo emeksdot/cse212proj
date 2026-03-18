@@ -40,6 +40,11 @@ public class TakingTurnsQueue
         else
         {
             Person person = _people.Dequeue();
+            if (person.Turns <= 0)
+            {
+                // To make an infinite loop we Enqueue the person if the person's turn is Zero or Negative
+                _people.Enqueue(person);
+            }
             if (person.Turns > 1)
             {
                 person.Turns -= 1;

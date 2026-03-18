@@ -18,8 +18,9 @@ public class PersonQueue
 
     public Person Dequeue()
     {
-        var person = _queue[0];
-        _queue.RemoveAt(0);
+        // Since we are Enqueuing from the front and moving to wards the back of the queue, we will have to remove from the back to ensure First In First Out (FIFO) format is retained.
+        var person = _queue[_queue.Count - 1];
+        _queue.RemoveAt(_queue.Count - 1);
         return person;
     }
 
