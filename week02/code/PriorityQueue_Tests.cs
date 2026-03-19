@@ -11,13 +11,13 @@ public class PriorityQueueTests
     // Defect(s) Found: 
     public void TestPriorityQueue_1()
     {
+        // Test to verify that the Dequeue method returns the item with the highest priority. 
         // Arrange
         var priorityQueue = new PriorityQueue();
         priorityQueue.Enqueue("Watch", 167);
         priorityQueue.Enqueue("Shoes", 150);
         priorityQueue.Enqueue("Bag", 120);
         priorityQueue.Enqueue("Hat", 160);
-        // var item5 = new PriorityItem("Hat", 160);
 
 
         // Act
@@ -33,6 +33,7 @@ public class PriorityQueueTests
     // Defect(s) Found: 
     public void TestPriorityQueue_2()
     {
+        // Test to ensure that if there are multiple items with the same priority, the one that was added first is removed first.
         // Arrange
         var priorityQueue = new PriorityQueue();
         priorityQueue.Enqueue("Watch", 167);
