@@ -20,6 +20,7 @@ public class PriorityQueueTests
         priorityQueue.Enqueue("Hat", 160);
 
 
+        // We will remove the node object with the highest priority so that we can continue to dequeue the List.
         // Act
         string result = priorityQueue.Dequeue();
 
@@ -41,11 +42,11 @@ public class PriorityQueueTests
         priorityQueue.Enqueue("Bag", 120);
         priorityQueue.Enqueue("Hat", 160);
         priorityQueue.Enqueue("Suit", 167);
-        // Assert.Fail("Implement the test case and then remove this.");
 
         // Act
         string result = priorityQueue.Dequeue();
 
+        // Confirmation that the first item with the highest priority is removed first.
         // Assert
         Assert.AreEqual("Watch", result);
     }
