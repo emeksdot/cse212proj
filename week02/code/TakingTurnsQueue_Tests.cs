@@ -73,7 +73,7 @@ public class TakingTurnsQueueTests
             {
                 Assert.Fail("Queue should have ran out of items by now.");
             }
-
+            // Since we are Enqueuing from the front and moving all Person objects towards the back of the queue, we will have to remove from the back to ensure First In First Out (FIFO) format is retained.
             var person = players.GetNextPerson();
             Assert.AreEqual(expectedResult[i].Name, person.Name);
 
