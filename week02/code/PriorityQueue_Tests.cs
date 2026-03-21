@@ -20,7 +20,7 @@ public class PriorityQueueTests
         priorityQueue.Enqueue("Hat", 160);
 
 
-        // We will remove the node object with the highest priority so that we can continue to dequeue the List.
+        // We will remove the node object with the highest priority so that we can continue to dequeue the List. Adjustments were made to the for loop in the PriorityQueue.cs file to loop to the end of the List.
         // Act
         string result = priorityQueue.Dequeue();
 
