@@ -2,6 +2,9 @@ using System.Text.Json;
 
 public static class SetsAndMaps
 {
+    // 
+
+
     /// <summary>
     /// The words parameter contains a list of two character 
     /// words (lower case, no duplicates). Using sets, find an O(n) 
@@ -22,7 +25,36 @@ public static class SetsAndMaps
     public static string[] FindPairs(string[] words)
     {
         // TODO Problem 1 - ADD YOUR CODE HERE
-        return [];
+        var uniqueWords = new HashSet<string>();
+        var result = new List<string>();
+
+
+        foreach (var word in words)
+        {
+            if (word[0] != word[1])
+            {
+                if (words.Contains(ReverseString(word)))
+                {
+                    uniqueWords.Add(word);
+                    uniqueWords.Add(ReverseString(word));
+                }
+
+            }
+        }
+
+        for (int i = 0; i < uniqueWords.Count; i += 2)
+        {
+            result.Add($"{uniqueWords.ElementAt(i)} & {uniqueWords.ElementAt(i + 1)}");
+        }
+        return result.ToArray();
+    }
+
+    // My first helper function to reverse a given input string.
+    public static string ReverseString(string input)
+    {
+        char[] charArray = input.ToCharArray();
+        Array.Reverse(charArray);
+        return new string(charArray);
     }
 
     /// <summary>
@@ -43,6 +75,7 @@ public static class SetsAndMaps
         {
             var fields = line.Split(",");
             // TODO Problem 2 - ADD YOUR CODE HERE
+            
         }
 
         return degrees;
