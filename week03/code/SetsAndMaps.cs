@@ -75,7 +75,16 @@ public static class SetsAndMaps
         {
             var fields = line.Split(",");
             // TODO Problem 2 - ADD YOUR CODE HERE
-            
+            if (!degrees.TryGetValue(fields[3], out int value))
+            {
+                degrees.Add(fields[3], 1);
+
+            }
+            else
+            {
+                degrees[fields[3]] = ++value;
+            }
+
         }
 
         return degrees;
