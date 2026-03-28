@@ -109,6 +109,33 @@ public static class SetsAndMaps
     public static bool IsAnagram(string word1, string word2)
     {
         // TODO Problem 3 - ADD YOUR CODE HERE
+        var dict = new Dictionary<char, int>();
+
+        if (word1.Length != word2.Length)
+        {
+            return false;
+        }
+
+        var newWord1 = word1.ToLower().ToArray();
+        var newWord2 = word2.ToLower().ToArray();
+
+        Array.Sort(newWord1);
+        Array.Sort(newWord2);
+
+        for (int i = 0; i < newWord1.Length; i++)
+        {
+            if (newWord1[i] != newWord2[i])
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
+
         return false;
     }
 
