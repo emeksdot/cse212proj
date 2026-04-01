@@ -111,13 +111,32 @@ public static class SetsAndMaps
         // TODO Problem 3 - ADD YOUR CODE HERE
         var dict = new Dictionary<char, int>();
 
-        if (word1.Length != word2.Length)
+        string first = "";
+        string second = "";
+        foreach (var letter in word1)
+        {
+            if (letter != ' ')
+            {
+                first += letter;
+            }
+        }
+        foreach (var letter in word2)
+        {
+            if (letter != ' ')
+            {
+                second += letter;
+            }
+        }
+
+        // var char[] word1Chars = first.ToLower().ToCharArray();
+
+        if (first.Length != second.Length)
         {
             return false;
         }
 
-        var newWord1 = word1.ToLower().ToArray();
-        var newWord2 = word2.ToLower().ToArray();
+        char[] newWord1 = first.ToLower().ToArray();
+        char[] newWord2 = second.ToLower().ToArray();
 
         Array.Sort(newWord1);
         Array.Sort(newWord2);
