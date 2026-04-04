@@ -25,7 +25,6 @@ public static class Recursion
             // Recursive Case
             return n * n + SumSquaresRecursive(n - 1);
         }
-        // return 0;
     }
 
     /// <summary>
@@ -50,6 +49,33 @@ public static class Recursion
     public static void PermutationsChoose(List<string> results, string letters, int size, string word = "")
     {
         // TODO Start Problem 2
+
+        // if (letters.Length == 0)
+        // {
+        //     Console.WriteLine(word);
+        // }
+        // else 
+        if (word.Length == size)
+        {
+            System.Console.WriteLine(word);
+            results.Add(word);
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < letters.Length; i++)
+            {
+                var sample = letters[i];
+                var lettersLeft = letters.Remove(i, 1);
+
+
+                string newWord = word + letters[i];
+                // string newLetters = letters.Remove(i, 1);
+                // results.Add(word + letters[i]);
+                // results.Add(newLetters);
+                PermutationsChoose(results, lettersLeft, size, word + sample);
+            }
+        }
     }
 
     /// <summary>
@@ -107,10 +133,18 @@ public static class Recursion
             return 4;
 
         // TODO Start Problem 3
-
+        if (remember == null)
+        {
+            remember = new Dictionary<int, decimal>();
+        }
+        else if (remember.ContainsKey(s))
+        {
+            return remember[s];
+        }
         // Solve using recursion
-        decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
-        return ways;
+        // decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
+        remember[s] = CountWaysToClimb(s - 1, remember) + CountWaysToClimb(s - 2, remember) + CountWaysToClimb(s - 3, remember);
+        return remember[s];
     }
 
     /// <summary>
@@ -129,6 +163,19 @@ public static class Recursion
     public static void WildcardBinary(string pattern, List<string> results)
     {
         // TODO Start Problem 4
+        if (pattern.IndexOf('*') == -1)
+        {
+            results.Add(pattern);
+            return;
+        }
+        else
+        {
+            int index = pattern.IndexOf('*');
+            string patternWithZero = pattern.Remove(index, 1).Insert(index, "0");
+            string patternWithOne = pattern.Remove(index, 1).Insert(index, "1");
+            WildcardBinary(patternWithZero, results);
+            WildcardBinary(patternWithOne, results);
+        }
     }
 
     /// <summary>
@@ -145,9 +192,11 @@ public static class Recursion
         }
 
         // currPath.Add((1,2)); // Use this syntax to add to the current path
+        currPath.Add((x, y));
 
         // TODO Start Problem 5
         // ADD CODE HERE
+        results.Add(currPath.AsString());
 
         // results.Add(currPath.AsString()); // Use this to add your path to the results array keeping track of complete maze solutions when you find the solution.
     }
