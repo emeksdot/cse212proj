@@ -16,6 +16,10 @@ public class BinarySearchTree : IEnumerable<int>
         {
             _root = newNode;
         }
+        else if (_root.Contains(value))
+        {
+            return;
+        }
         // If the list is not empty, then only head will be affected.
         else
         {

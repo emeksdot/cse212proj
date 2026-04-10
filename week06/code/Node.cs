@@ -12,11 +12,12 @@ public class Node
     public void Insert(int value)
     {
         // TODO Start Problem 1
-        Node _root = new Node(Data);
-
-
-
-        if (value < Data)
+        Node _root = this;
+        if (_root.Data == null)
+        {
+            _root.Data = value;
+        }
+        else if (value < Data)
         {
             // Insert to the left
             if (Left is null)
@@ -43,15 +44,12 @@ public class Node
     public int GetHeight()
     {
         // TODO Start Problem 4
-        // Node node = new(Data);
         // return 0; // Replace this line with the correct return statement(s)
         Node node = this;
+        if (node == null)
+        {
+            return 0;
+        }
         return 1 + Math.Max(node.Left != null ? node.Left.GetHeight() : 0, node.Right != null ? node.Right.GetHeight() : 0);
-        // int height = 1;
-        // while (node.Right.GetHeight() != null || node.Left.GetHeight() != null)
-        // {
-        //     height++;
-        // }
-        // return height;
     }
 }
