@@ -196,6 +196,11 @@ public static class Recursion
 
         // TODO Start Problem 5
         // ADD CODE HERE
+        // ++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+        // ++++++++++++++++++++++++++++++++++++++++++++
         results.Add(currPath.AsString());
 
         // results.Add(currPath.AsString()); // Use this to add your path to the results array keeping track of complete maze solutions when you find the solution.
